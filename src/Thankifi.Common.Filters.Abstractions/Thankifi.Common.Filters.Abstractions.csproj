@@ -1,24 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+    
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <Title>Thankifi.Common.Filters</Title>
-        <Description>Common filters to have fun with strings.</Description>
+        <Title>Thankifi.Common.Filters.Abstractions</Title>
+        <Description>Abstractions for common filters to have fun with strings.</Description>
         <Authors>Lucas Maximiliano Marino</Authors>
         <PackageProjectUrl>https://github.com/thankifi/package.filters</PackageProjectUrl>
         <RepositoryUrl>https://github.com/thankifi/package.filters</RepositoryUrl>
         <Copyright>Copyright © Lucas Maximiliano Marino 2021</Copyright>
     </PropertyGroup>
     
-    <ItemGroup>
-        <PackageReference Include="Bottom.NET" Version="3.0.0" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" PrivateAssets="all" />
-    </ItemGroup>
-    
-    <ItemGroup>
-        <ProjectReference Include="..\Thankifi.Common.Filters.Abstractions\Thankifi.Common.Filters.Abstractions.csproj" />
-    </ItemGroup>
-
 </Project>
