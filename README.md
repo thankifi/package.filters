@@ -1,2 +1,2 @@
 # package.filters
-Common filters for Thankifi
+Common filters to have fun with strings.
