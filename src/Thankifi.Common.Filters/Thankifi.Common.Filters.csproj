@@ -11,5 +11,9 @@
         <RepositoryUrl>https://github.com/thankifi/package.filters</RepositoryUrl>
         <Copyright>Copyright © Lucas Maximiliano Marino 2021</Copyright>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Bottom.NET" Version="3.0.0" PrivateAssets="all" />
+    </ItemGroup>
 
 </Project>
