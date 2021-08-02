@@ -1,6 +1,14 @@
 # package.filters
 Common filters to have fun with strings.
 
+# Available filters
+
+- Binary
+- Bottomify
+- Leet
+- Mock
+- Shouting
+
 ## License
 Copyright (C) 2021  Lucas Maximiliano Marino
 
