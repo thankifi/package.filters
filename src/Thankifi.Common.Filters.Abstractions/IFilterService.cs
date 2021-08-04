@@ -14,6 +14,13 @@ namespace Thankifi.Common.Filters.Abstractions
     public interface IFilterService
     {
         /// <summary>
+        /// Get a list of the identifiers for all available filters.
+        /// </summary>
+        /// <returns>A list of identifiers.</returns>
+        IEnumerable<string> GetAvailableFilterIdentifiers();
+
+        /// <summary>
+        /// <summary>
         /// Applies a filter to a string given a filter identifier and an input string.
         /// </summary>
         /// <param name="filter">The identifier of the <see cref="IFilter"/> to apply.</param>
