@@ -33,6 +33,14 @@ namespace Thankifi.Common.Filters.Abstractions
         /// <param name="identifier">The identifier of the <see cref="IFilter"/>.</param>
         /// <returns>A instance of the <see cref="IFilter"/></returns>
         IFilter? GetFilterOrDefault(string identifier);
+
+        /// <summary>
+        /// Try to get a filter given a identifier.
+        /// </summary>
+        /// <param name="identifier">The identifier of the <see cref="IFilter"/>.</param>
+        /// <param name="filter">A reference to store the <see cref="IFilter"/>.</param>
+        /// <returns>A instance of the <see cref="IFilter"/></returns>
+        bool TryGetFilter(string identifier, out IFilter filter);
         
         /// <summary>
         /// Applies a filter to a string given a filter identifier and an input string.

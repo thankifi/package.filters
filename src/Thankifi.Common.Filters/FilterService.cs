@@ -51,16 +51,24 @@ namespace Thankifi.Common.Filters
         }
 
         /// <inheritdoc />
+        public bool TryGetFilter(string identifier, out IFilter filter)
+        {
+            filter = Filters.FirstOrDefault(f => f.Identifier == identifier);
+
+            return filter is not null;
+        }
+
+        /// <inheritdoc />
         public async Task<string> Apply(string identifier, string str, CancellationToken cancellationToken = default)
         {
-            var selectedFilter = Filters.FirstOrDefault(f => f.Identifier == identifier);
+            var filter = Filters.FirstOrDefault(f => f.Identifier == identifier);
 
-            if (selectedFilter is null)
+            if (filter is null)
             {
                 throw new InvalidFilterException();
             }
 
-            return await selectedFilter.Apply(str, cancellationToken).ConfigureAwait(false);
+            return await filter.Apply(str, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
@@ -81,7 +89,7 @@ namespace Thankifi.Common.Filters
         {
             foreach (var filter in identifiers)
             {
-                str = await Apply(filter, str, cancellationToken);
+                str = await Apply(filter, str, cancellationToken).ConfigureAwait(false);
             }
 
             return str;
@@ -92,7 +100,7 @@ namespace Thankifi.Common.Filters
         {
             foreach (var filter in identifiers)
             {
-                var filtered = await ApplyOrDefault(filter, str, cancellationToken);
+                var filtered = await ApplyOrDefault(filter, str, cancellationToken).ConfigureAwait(false);
 
                 if (filtered is not null)
                 {
