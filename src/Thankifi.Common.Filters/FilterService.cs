@@ -29,6 +29,25 @@ namespace Thankifi.Common.Filters
         }
 
         /// <inheritdoc />
+        public IFilter GetFilter(string identifier)
+        {
+            var filter = _filters.FirstOrDefault(f => f.Identifier == identifier);
+
+            if (filter is null)
+            {
+                throw new InvalidFilterException();
+            }
+
+            return filter;
+        }
+
+        /// <inheritdoc />
+        public IFilter? GetFilterOrDefault(string identifier)
+        {
+            return _filters.FirstOrDefault(f => f.Identifier == identifier);
+        }
+
+        /// <inheritdoc />
         public async Task<string> Apply(string identifier, string str, CancellationToken cancellationToken = default)
         {
             var selectedFilter = _filters.FirstOrDefault(f => f.Identifier == identifier);
