@@ -23,9 +23,15 @@ namespace Thankifi.Common.Filters
         }
 
         /// <inheritdoc />
-        public async Task<string> Apply(string filter, string str, CancellationToken cancellationToken = default)
+        public IEnumerable<string> GetAvailableFilterIdentifiers()
         {
-            var selectedFilter = _filters.FirstOrDefault(f => f.Identifier == filter);
+            return _filters.Select(filter => filter.Identifier);
+        }
+
+        /// <inheritdoc />
+        public async Task<string> Apply(string identifier, string str, CancellationToken cancellationToken = default)
+        {
+            var selectedFilter = _filters.FirstOrDefault(f => f.Identifier == identifier);
 
             if (selectedFilter is null)
             {
@@ -36,11 +42,11 @@ namespace Thankifi.Common.Filters
         }
 
         /// <inheritdoc />
-        public async Task<string?> ApplyOrDefault(string filter, string str, CancellationToken cancellationToken = default)
+        public async Task<string?> ApplyOrDefault(string identifier, string str, CancellationToken cancellationToken = default)
         {
             try
             {
-                return await Apply(filter, str, cancellationToken).ConfigureAwait(false);
+                return await Apply(identifier, str, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -49,9 +55,9 @@ namespace Thankifi.Common.Filters
         }
 
         /// <inheritdoc />
-        public async Task<string> Apply(IEnumerable<string> filters, string str, CancellationToken cancellationToken = default)
+        public async Task<string> Apply(IEnumerable<string> identifiers, string str, CancellationToken cancellationToken = default)
         {
-            foreach (var filter in filters)
+            foreach (var filter in identifiers)
             {
                 str = await Apply(filter, str, cancellationToken);
             }
@@ -60,9 +66,9 @@ namespace Thankifi.Common.Filters
         }
 
         /// <inheritdoc />
-        public async Task<string?> ApplyOrDefault(IEnumerable<string> filters, string str, CancellationToken cancellationToken = default)
+        public async Task<string?> ApplyOrDefault(IEnumerable<string> identifiers, string str, CancellationToken cancellationToken = default)
         {
-            foreach (var filter in filters)
+            foreach (var filter in identifiers)
             {
                 var filtered = await ApplyOrDefault(filter, str, cancellationToken);
 
