@@ -8,6 +8,7 @@ using Thankifi.Common.Filters.Exceptions;
 
 namespace Thankifi.Common.Filters
 {
+    /// <inheritdoc />
     public class FilterService : IFilterService
     {
         private readonly IEnumerable<IFilter> _filters;
@@ -45,6 +46,33 @@ namespace Thankifi.Common.Filters
             {
                 return default;
             }
+        }
+
+        /// <inheritdoc />
+        public async Task<string> Apply(IEnumerable<string> filters, string str, CancellationToken cancellationToken = default)
+        {
+            foreach (var filter in filters)
+            {
+                str = await Apply(filter, str, cancellationToken);
+            }
+
+            return str;
+        }
+
+        /// <inheritdoc />
+        public async Task<string?> ApplyOrDefault(IEnumerable<string> filters, string str, CancellationToken cancellationToken = default)
+        {
+            foreach (var filter in filters)
+            {
+                var filtered = await ApplyOrDefault(filter, str, cancellationToken);
+
+                if (filtered is not null)
+                {
+                    str = filtered;
+                }
+            }
+
+            return str;
         }
     }
 }
