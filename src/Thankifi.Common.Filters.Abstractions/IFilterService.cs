@@ -20,6 +20,20 @@ namespace Thankifi.Common.Filters.Abstractions
         IEnumerable<string> GetAvailableFilterIdentifiers();
 
         /// <summary>
+        /// Get a filter instance given a identifier.
+        /// </summary>
+        /// <param name="identifier">The identifier of the <see cref="IFilter"/>.</param>
+        /// <exception cref="InvalidFilterException">When the requested filter does not exists.</exception>
+        /// <returns>A instance of the <see cref="IFilter"/></returns>
+        IFilter GetFilter(string identifier);
+
+        /// <summary>
+        /// Get a filter instance given a identifier or null if it does not exist.
+        /// </summary>
+        /// <param name="identifier">The identifier of the <see cref="IFilter"/>.</param>
+        /// <returns>A instance of the <see cref="IFilter"/></returns>
+        IFilter? GetFilterOrDefault(string identifier);
+        
         /// <summary>
         /// Applies a filter to a string given a filter identifier and an input string.
         /// </summary>
