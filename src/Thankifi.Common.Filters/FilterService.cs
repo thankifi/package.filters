@@ -11,7 +11,10 @@ namespace Thankifi.Common.Filters
     /// <inheritdoc />
     public class FilterService : IFilterService
     {
-        private readonly IEnumerable<IFilter> _filters;
+        /// <summary>
+        /// Available filters.
+        /// </summary>
+        protected readonly IEnumerable<IFilter> Filters;
 
         /// <summary>
         /// Default constructor.
@@ -19,19 +22,19 @@ namespace Thankifi.Common.Filters
         /// <param name="filters"></param>
         public FilterService(IEnumerable<IFilter> filters)
         {
-            _filters = filters;
+            Filters = filters;
         }
 
         /// <inheritdoc />
         public IEnumerable<string> GetAvailableFilterIdentifiers()
         {
-            return _filters.Select(filter => filter.Identifier);
+            return Filters.Select(filter => filter.Identifier);
         }
 
         /// <inheritdoc />
         public IFilter GetFilter(string identifier)
         {
-            var filter = _filters.FirstOrDefault(f => f.Identifier == identifier);
+            var filter = Filters.FirstOrDefault(f => f.Identifier == identifier);
 
             if (filter is null)
             {
@@ -44,13 +47,13 @@ namespace Thankifi.Common.Filters
         /// <inheritdoc />
         public IFilter? GetFilterOrDefault(string identifier)
         {
-            return _filters.FirstOrDefault(f => f.Identifier == identifier);
+            return Filters.FirstOrDefault(f => f.Identifier == identifier);
         }
 
         /// <inheritdoc />
         public async Task<string> Apply(string identifier, string str, CancellationToken cancellationToken = default)
         {
-            var selectedFilter = _filters.FirstOrDefault(f => f.Identifier == identifier);
+            var selectedFilter = Filters.FirstOrDefault(f => f.Identifier == identifier);
 
             if (selectedFilter is null)
             {
