@@ -16,13 +16,13 @@ namespace Thankifi.Common.Filters
         /// <returns><see cref="IServiceCollection"/></returns>
         public static IServiceCollection AddFilters(this IServiceCollection services)
         {
-            services.TryAddTransient<IFilter, BinaryFilter>();
-            services.TryAddTransient<IFilter, BottomifyFilter>();
-            services.TryAddTransient<IFilter, LeetFilter>();
-            services.TryAddTransient<IFilter, MockFilter>();
-            services.TryAddTransient<IFilter, ShoutingFilter>();
-
             services.TryAddTransient<IFilterService, FilterService>();
+
+            services.AddTransient<IFilter, BinaryFilter>();
+            services.AddTransient<IFilter, BottomifyFilter>();
+            services.AddTransient<IFilter, LeetFilter>();
+            services.AddTransient<IFilter, MockFilter>();
+            services.AddTransient<IFilter, ShoutingFilter>();
             
             return services;
         }
