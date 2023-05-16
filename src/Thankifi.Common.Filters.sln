@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thankifi.Common.Filters", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thankifi.Common.Filters.Abstractions", "Thankifi.Common.Filters.Abstractions\Thankifi.Common.Filters.Abstractions.csproj", "{1A10545A-B386-4F0D-974B-DE41C2BBA617}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thankifi.Common.Filters.Testing", "Thankifi.Common.Filters.Testing\Thankifi.Common.Filters.Testing.csproj", "{5FD046EC-1636-4EDB-AC69-0A147277E6F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1A10545A-B386-4F0D-974B-DE41C2BBA617}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A10545A-B386-4F0D-974B-DE41C2BBA617}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A10545A-B386-4F0D-974B-DE41C2BBA617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD046EC-1636-4EDB-AC69-0A147277E6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD046EC-1636-4EDB-AC69-0A147277E6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD046EC-1636-4EDB-AC69-0A147277E6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD046EC-1636-4EDB-AC69-0A147277E6F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

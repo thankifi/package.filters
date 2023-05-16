@@ -19,7 +19,7 @@ namespace Thankifi.Common.Filters
             services.TryAddTransient<IFilterService, FilterService>();
 
             services.AddTransient<IFilter, BinaryFilter>();
-            services.AddTransient<IFilter, BottomifyFilter>();
+            // services.AddTransient<IFilter, BottomifyFilter>();
             services.AddTransient<IFilter, LeetFilter>();
             services.AddTransient<IFilter, MockFilter>();
             services.AddTransient<IFilter, ShoutingFilter>();
