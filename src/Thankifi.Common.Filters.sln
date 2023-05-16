@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thankifi.Common.Filters.Abs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thankifi.Common.Filters.Testing", "Thankifi.Common.Filters.Testing\Thankifi.Common.Filters.Testing.csproj", "{5FD046EC-1636-4EDB-AC69-0A147277E6F1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution-files", ".solution-files", "{21A29D19-0AC8-4557-8BA4-B764303429DF}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\thankifi.common.filters.abstractions.yml = ..\.github\workflows\thankifi.common.filters.abstractions.yml
+		..\.github\workflows\thankifi.common.filters.yml = ..\.github\workflows\thankifi.common.filters.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
