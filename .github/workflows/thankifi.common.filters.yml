@@ -48,8 +48,15 @@ jobs:
         working-directory: ./src
         run: dotnet restore
       - name: Pack
+        if: github.event_name != 'release'
         working-directory: ./src
         run: dotnet pack --configuration Release --no-restore --include-symbols --include-source --output ${{ env.LOCAL_NUGET_DIRECTORY }} $PROJECT_NAME/$PROJECT_NAME.csproj
+      - name: Pack
+        if: github.event_name == 'release'
+        working-directory: ./src
+        run: |
+          VERSION="${GITHUB_REF_NAME//v}
+          dotnet pack --configuration Release --no-restore --include-symbols --include-source -p:PackageVersion=$VERSION --output ${{ env.LOCAL_NUGET_DIRECTORY }} $PROJECT_NAME/$PROJECT_NAME.csproj
       - uses: actions/upload-artifact@v3
         with:
           name: nupkg
@@ -76,6 +83,7 @@ jobs:
 #          VERSION="${arrTag[2]}"
 #          echo Version: $VERSION
 #          VERSION="${VERSION//v}"
+      
 #          echo Clean Version: $VERSION
 #          dotnet pack -v normal -c Release --include-symbols --include-source -p:PackageVersion=$VERSION -o nupkg src/$PROJECT_NAME/$PROJECT_NAME.*proj
       - name: Push to GitHub Feed
