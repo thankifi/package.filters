@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution-files", ".solutio
 	ProjectSection(SolutionItems) = preProject
 		..\.github\workflows\thankifi.common.filters.abstractions.yml = ..\.github\workflows\thankifi.common.filters.abstractions.yml
 		..\.github\workflows\thankifi.common.filters.yml = ..\.github\workflows\thankifi.common.filters.yml
+		global.json = global.json
 	EndProjectSection
 EndProject
 Global
