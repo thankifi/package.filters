@@ -49,7 +49,7 @@ jobs:
         run: dotnet restore
       - name: Pack
         working-directory: ./src
-        run: dotnet pack --configuration Release --no-restore --include-symbols --include-source --output ${{ env.LOCAL_NUGET_DIRECTORY }} src/$PROJECT_NAME/$PROJECT_NAME.csproj
+        run: dotnet pack --configuration Release --no-restore --include-symbols --include-source --output ${{ env.LOCAL_NUGET_DIRECTORY }} $PROJECT_NAME/$PROJECT_NAME.csproj
       - uses: actions/upload-artifact@v3
         with:
           name: nupkg
