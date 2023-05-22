@@ -55,7 +55,7 @@ jobs:
           name: nupkg
           if-no-files-found: error
           retention-days: 7
-          path: ${{ env.NuGetDirectory }}/*.nupkg
+          path: ${{ env.LOCAL_NUGET_DIRECTORY }}/*.nupkg
   deploy:
     needs: [ build, test ]
     if: github.event_name == 'release'
