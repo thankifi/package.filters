@@ -75,7 +75,7 @@ jobs:
         with:
           source-url: ${{ env.GITHUB_FEED }}/index.json
       - name: Retrieve artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: nupkg
           path: ${{ env.LOCAL_NUGET_DIRECTORY }}
